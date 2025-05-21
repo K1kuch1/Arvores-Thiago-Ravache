@@ -1,19 +1,19 @@
 public class No {
-    private Integer conteudo;
+    String conteudo;
     private No esquerda;
     private No direita;
 
-    public No(Integer conteudo) {
+    public No(String conteudo) {
         this.conteudo = conteudo;
         this.esquerda = null;
         this.direita = null;
     }
 
-    public Integer getConteudo() {
+    public String getConteudo() {
         return conteudo;
     }
 
-    public void setConteudo(Integer conteudo) {
+    public void setConteudo(String conteudo) {
         this.conteudo = conteudo;
     }
 
