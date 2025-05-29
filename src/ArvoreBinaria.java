@@ -129,8 +129,13 @@ public class ArvoreBinaria {
             if (atual.getEsquerda() == null && atual.getDireita() == null) {
                 contador++;
             }
-            if (atual.getDireita() != null) {pilha.push(atual.getDireita());}
-            if (atual.getEsquerda() != null) {pilha.push(atual.getEsquerda());}
+            if (atual.getDireita() != null) {
+                pilha.push(atual.getDireita());
+            }
+            if (atual.getEsquerda() != null) {
+                pilha.push(atual.getEsquerda());
+            }
         }
     }
+
 }

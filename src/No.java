@@ -2,11 +2,13 @@ public class No {
     String conteudo;
     private No esquerda;
     private No direita;
+    private int fatorDeBalanceamento;
 
     public No(String conteudo) {
         this.conteudo = conteudo;
         this.esquerda = null;
         this.direita = null;
+        this.fatorDeBalanceamento = 0;
     }
 
     public String getConteudo() {
