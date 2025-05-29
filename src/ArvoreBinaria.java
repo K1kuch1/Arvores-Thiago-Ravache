@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class ArvoreBinaria {
     public No raiz;
@@ -98,6 +99,38 @@ public class ArvoreBinaria {
             if (aux.getDireita() != null) {
                 lista.add(aux.getDireita());
             }
+        }
+    }
+
+    public int contarNosFolhaRecursivo(No aux) {
+        if (aux == null) {
+            return 0;
+        }
+        if (aux.getEsquerda() == null && aux.getDireita() == null) {
+            return 1;
+        }
+        return contarNosFolhaRecursivo(aux.getEsquerda()) + contarNosFolhaRecursivo(aux.getDireita());
+    }
+
+
+    public void contarNosFolhaIterativo() {
+        if (raiz == null) {
+            return;
+        }
+
+        Stack<No> pilha = new Stack<>();
+        pilha.push(raiz);
+        int contador = 0;
+
+        while (!pilha.isEmpty()) {
+           No atual = pilha.pop();
+            System.out.println(pilha);
+
+            if (atual.getEsquerda() == null && atual.getDireita() == null) {
+                contador++;
+            }
+            if (atual.getDireita() != null) {pilha.push(atual.getDireita());}
+            if (atual.getEsquerda() != null) {pilha.push(atual.getEsquerda());}
         }
     }
 }
