@@ -137,5 +137,32 @@ public class ArvoreBinaria {
             }
         }
     }
+    public void insercaoArvoreAvl () {
+        No atual = this.raiz;
+        if (atual == null) {
+            return;
+        }
 
+        Stack<No> pilha = new Stack<>();
+        pilha.push(raiz);
+        while (!pilha.isEmpty()) {
+            No aux = this.raiz;
+            if (aux.getFatorDeBalanceamento() < -1) {
+                pilha.push(aux.getEsquerda());
+                pilha.add(aux.getEsquerda());
+            }
+            if (aux.getFatorDeBalanceamento() < 0) {
+                pilha.push(aux.getEsquerda());
+                pilha.add(aux.getEsquerda());
+            }
+            if (aux.getFatorDeBalanceamento() > 0) {
+                pilha.push(aux.getDireita());
+                pilha.add(aux.getDireita());
+            }
+            if (aux.getFatorDeBalanceamento() < 1) {
+                pilha.push(aux.getDireita());
+                pilha.add(aux.getDireita());
+            }
+        }
+    }
 }

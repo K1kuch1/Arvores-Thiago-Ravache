@@ -11,6 +11,14 @@ public class No {
         this.fatorDeBalanceamento = 0;
     }
 
+    public int getFatorDeBalanceamento() {
+        return fatorDeBalanceamento;
+    }
+
+    public void setFatorDeBalanceamento(int fatorDeBalanceamento) {
+        this.fatorDeBalanceamento = fatorDeBalanceamento;
+    }
+
     public String getConteudo() {
         return conteudo;
     }
