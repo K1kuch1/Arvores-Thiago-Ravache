@@ -147,19 +147,24 @@ public class ArvoreBinaria {
         pilha.push(raiz);
         while (!pilha.isEmpty()) {
             No aux = this.raiz;
-            if (aux.getFatorDeBalanceamento() < -1) {
+            int altura =0;
+            if (altura < -1) {
+                aux.getFatorDeBalanceamento();
                 pilha.push(aux.getEsquerda());
                 pilha.add(aux.getEsquerda());
             }
-            if (aux.getFatorDeBalanceamento() < 0) {
+            if (altura < 0) {
+                aux.getFatorDeBalanceamento();
                 pilha.push(aux.getEsquerda());
                 pilha.add(aux.getEsquerda());
             }
-            if (aux.getFatorDeBalanceamento() > 0) {
+            if (altura > 0) {
+                aux.getFatorDeBalanceamento();
                 pilha.push(aux.getDireita());
                 pilha.add(aux.getDireita());
             }
-            if (aux.getFatorDeBalanceamento() < 1) {
+            if (altura < 1) {
+                aux.getFatorDeBalanceamento();
                 pilha.push(aux.getDireita());
                 pilha.add(aux.getDireita());
             }
