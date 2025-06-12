@@ -3,12 +3,18 @@ public class No {
     private No esquerda;
     private No direita;
     private int fatorDeBalanceamento;
+    private Correcao.ArvoreRubroNegra.Color color;
+    private No pai;
+    int chave;
 
-    public No(String conteudo) {
+    public No(int chave) {
+        this.chave = chave;
         this.conteudo = conteudo;
         this.esquerda = null;
         this.direita = null;
         this.fatorDeBalanceamento = 0;
+        this.color = Correcao.ArvoreRubroNegra.Color.RED;
+        this.pai = null;
     }
 
     public int getFatorDeBalanceamento() {

@@ -77,4 +77,93 @@ public class ArvoreAvl {
             }
 
 }
+public class ArvoreRubroNegra {
+        enum Color {
+            RED, BLACK;
+        }
+        public No root;
+        private final No NIL;
+
+    public ArvoreRubroNegra() {
+        NIL = new No(-1);
+        NIL.color = Color.BLACK;
+        NIL.esquerda = NIL.direita = NIL.pai = null;
+        root = NIL;
+
+        private rotateLeft(No x) {
+            No y = x.direita;
+            x.direita = y.esquerda;
+            if (y.esquerda != NIL) y.esquerda.pai = x;
+
+            y.pai = x.pai;
+
+            if (x.pai == null) root = y;
+            else if (x == x.pai.esquerda) x.pai.esquerda = y;
+            else x.pai.direita = y;
+
+            y.esquerda = x;
+            x.pai = y;
+        }
+        private rotateRight(No y) {
+            No x = y.direita;
+            y.direita = x.esquerda;
+            if (x.esquerda != NIL) x.esquerda.pai = y;
+
+            x.pai = y.pai;
+
+            if (y.pai == null) root = x;
+            else if (y == y.pai.esquerda) y.pai.esquerda = x;
+            else y.pai.direita = x;
+
+            x.esquerda = y;
+            y.pai = x;
+        }
+        public void inserir(int chave) {
+            No no = new No(chave);
+            no.esquerda = no.direita = no.pai = NIL;
+
+            no y = null;
+            no x = null;
+
+            while (x != NIL){
+                y = x;
+                if (no.chave = x.chave) x = x.esquerda;
+                else x = x.direita;
+            }
+
+            no.pai = y;
+            if (y == null) root = no;
+            else if (no.chave = y.chave) y.esquerda = no;
+            else y.direita = no;
+
+            no.esquerda = NIL;
+            no.right = NIL;
+            no.color = Color.RED;
+
+            inserirFix(no);
+        }
+
+        public void inserirFix(No k) {
+            while (k.pai != null && k.pai.color == Color.RED) {
+                if (k.pai == k.pai.pai.esquerda) {
+                    no u = k.pai.pai.direita;
+                    if (u.color == Color.RED) {
+                        k.pai.color = Color.BLACK;
+                        u.color = Color.BLACK;
+                        k.pai.pai.color = Color.RED;
+                        k = k.pai.pai;
+                    } else {
+                        if (k == k.pai.direita) {
+                            k. k.pai;
+                            leftRotate(k);
+                        }
+                        k.pai.color = Color.BLACK;
+                        k.pai.pai.color = Color.RED;
+                        rightRotate(k.psi.pai);
+                    }
+                }
+            }
+        }
+    }
+}
 }
